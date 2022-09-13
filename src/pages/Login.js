@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-
+import {useLogin} from "../hooks/useLogin"
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
-
+const {error,login}=useLogin();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
+    login(email,password)
   };
   return (
     <div>
@@ -17,6 +18,7 @@ const Login = () => {
             <label><span>Password :</span>
             <input type="password"  required value={password} onChange={(e)=>SetPassword(e.target.value)}/></label>
             <button>Enter</button>
+            {error && <p>{error}</p>}
         </form>
     </div>
     )

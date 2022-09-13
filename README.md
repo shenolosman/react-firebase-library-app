@@ -7,3 +7,5 @@ First of all created https://firebase.google.com/ web app with google account wi
 
 
 `install firebase@9` installed firebase version 9 for create project.
+
+To authentication created first email/password auth control from firebase.
