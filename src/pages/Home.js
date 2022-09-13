@@ -4,13 +4,15 @@ import BookList from "../components/BookList";
 // import { db } from "../firebase/config";
 // import { collection, getDocs } from "firebase/firestore";
 import {useCollection} from "../hooks/useCollection"
+import { useAuthContext } from "../hooks/useAuthContext";
 const Home = () => {
   //   const [books, setBooks] = useState([
   //     { title: "Book 1", id: 1 },
   //     { title: "Book 2", id: 2 },
   //     { title: "Book 3", id: 3 },
   //   ]);
-  const {documents:books}=useCollection('books')
+  const {user}=useAuthContext();
+  const {documents:books}=useCollection('books',["uid","==",user.uid])
 //   const [books, setBooks] = useState(null);
 //   useEffect(() => {
 //     const referens = collection(db, 'books'); //from firebase
