@@ -29,10 +29,10 @@ export const AuthContextProvider = ({ children }) => {
       unsub();
     });
   }, []);
-  console.log("AuthContext stae: ",state)
+  console.log("AuthContext state: ",state)
   return (
-    <AuthContext value={{...state,dispatch}}>
+    <AuthContext.Provider value={{...state,dispatch}}>
         {children}
-    </AuthContext>
+    </AuthContext.Provider>
     )
 };
